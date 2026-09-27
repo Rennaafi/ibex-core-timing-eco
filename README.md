@@ -12,7 +12,7 @@ then closed via a hands-on interactive ECO (engineering change order) session �
 critical path gate-by-gate, manually resizing the bottleneck cell, then confirming closure with
 OpenROAD's automated `repair_timing` pass.
 
-This is a companion / scale-up project to [`gcd-rtl-to-gdsii`](../gcd-rtl-to-gdsii) — same
+This is a companion / scale-up project to [`gcd-rtl-to-gdsii`](https://github.com/Rennaafi/gcd-rtl-to-gdsii) — same
 toolchain and PDK, but a 30x larger, hand-written real CPU instead of a small textbook design.
 
 ---
@@ -35,7 +35,7 @@ toolchain and PDK, but a 30x larger, hand-written real CPU instead of a small te
 Most "hello world" physical design exercises stop at "the flow ran and produced a GDS." The more
 useful — and more realistic — skill is what happens when the flow finishes with *violations*:
 how do you find the actual cause, and what are the real options for fixing it? This project
-picks up exactly where [`gcd-rtl-to-gdsii`](../gcd-rtl-to-gdsii) left off (a shipped constraint
+picks up exactly where [`gcd-rtl-to-gdsii`](https://github.com/Rennaafi/gcd-rtl-to-gdsii) left off (a shipped constraint
 that missed by picoseconds across hundreds of paths at CPU scale) and works the problem the way
 a physical design/PPA engineer actually would: read the timing report, find the weak cell,
 fix it, verify, and know the limits of what you just did.
