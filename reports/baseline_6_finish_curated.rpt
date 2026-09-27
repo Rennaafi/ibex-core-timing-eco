@@ -1,0 +1,116 @@
+==========================================================================
+finish report_tns
+--------------------------------------------------------------------------
+tns max -1.37
+
+==========================================================================
+finish report_wns
+--------------------------------------------------------------------------
+wns max -0.02
+
+==========================================================================
+finish report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -0.02
+
+==========================================================================
+finish report_clock_min_period
+--------------------------------------------------------------------------
+core_clock period_min = 2.22 fmax = 451.37
+vclk_core_clock period_min = 1.90 fmax = 526.00
+
+==========================================================================
+finish report_clock_skew
+--------------------------------------------------------------------------
+Clock core_clock
+   0.31 source latency if_stage_i.instr_rdata_id_o[21]$_DFFE_PP_/CK ^
+  -0.24 target latency gen_regfile_ff.register_file_i.rf_reg[957]$_DFFE_PN0P_/CK ^
+   0.00 CRPR
+--------------
+   0.07 setup skew
+
+==========================================================================
+finish report_checks -path_delay max  (the worst violated path)
+--------------------------------------------------------------------------
+Startpoint: if_stage_i.instr_rdata_id_o[15]$_DFFE_PP_
+            (rising edge-triggered flip-flop clocked by core_clock)
+Endpoint: gen_regfile_ff.register_file_i.rf_reg[948]$_DFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by core_clock)
+Path Group: core_clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock core_clock (rise edge)
+                          0.28    0.28   clock network delay (propagated)
+     6   37.22    0.04    0.15    0.43 ^ if_stage_i.instr_rdata_id_o[15]$_DFFE_PP_/Q (DFF_X2)
+                  0.04    0.01    0.44 ^ place2592/A (BUF_X8)
+     8   56.15    0.01    0.03    0.47 ^ place2592/Z (BUF_X8)
+    26   84.20    0.01    0.03    0.52 ^ place2583/Z (BUF_X16)
+    48  110.99    0.01    0.03    0.55 ^ place2582/Z (BUF_X16)
+     1    1.29    0.01    0.06    0.64 v _17626_/Z (MUX2_X1)
+     1    1.13    0.01    0.06    0.69 v _17628_/Z (MUX2_X1)
+     1    1.79    0.01    0.06    0.75 v _17632_/Z (MUX2_X1)
+     1    2.90    0.01    0.06    0.81 v _17633_/Z (MUX2_X1)
+     4   32.48    0.04    0.10    0.91 v _17634_/Z (MUX2_X1)      <-- undersized: 32fF load on X1 drive
+     1    3.34    0.01    0.07    1.00 v _18610_/Z (MUX2_X1)      <-- inherits degraded edge from above
+     2   10.04    0.04    0.06    1.06 ^ _18611_/ZN (AOI22_X2)
+     1    7.23    0.02    0.04    1.10 v _19064_/ZN (AOI21_X1)
+     2    3.03    0.03    0.04    1.14 ^ _26865_/S (HA_X1)
+     2    1.91    0.01    0.02    1.16 v _17772_/ZN (NAND2_X1)
+     2    2.33    0.01    0.05    1.20 v _17774_/ZN (OR2_X1)
+     1    3.27    0.02    0.12    1.33 v _17775_/ZN (OR4_X1)       <-- wide-fanin gate, intrinsically slow
+     2    3.57    0.04    0.07    1.39 ^ _17777_/ZN (AOI211_X2)
+     1    4.71    0.02    0.02    1.41 v _19001_/ZN (NOR2_X1)
+     2    7.10    0.03    0.04    1.46 ^ _19002_/ZN (XNOR2_X2)
+     2    2.32    0.01    0.01    1.47 v _19003_/ZN (INV_X1)
+     2    2.33    0.01    0.05    1.52 v _19468_/ZN (OR2_X1)
+     1    1.77    0.01    0.08    1.60 v _19479_/ZN (OR3_X1)        <-- shared tail begins here
+     1    1.86    0.03    0.05    1.65 ^ _19480_/ZN (NOR3_X1)
+     1    1.68    0.02    0.03    1.69 v _19482_/ZN (NAND4_X1)
+     1    3.99    0.02    0.11    1.80 v _19483_/ZN (OR4_X2)
+     3   12.25    0.02    0.11    1.92 v _19484_/ZN (OR4_X4)        <-- already at max drive strength (X4)
+     3   11.01    0.01    0.08    2.00 v _19485_/ZN (OR3_X4)
+     4   25.39    0.04    0.05    2.05 ^ _19486_/ZN (AOI21_X4)
+     2    5.38    0.02    0.04    2.10 ^ place1950/Z (BUF_X1)
+     1    6.92    0.02    0.03    2.12 v _19488_/ZN (OAI211_X2)
+     2    9.95    0.01    0.05    2.17 v _19489_/ZN (AND2_X1)
+    20   46.79    0.01    0.03    2.20 v place1933/Z (BUF_X8)
+     1    1.22    0.02    0.03    2.25 ^ _20375_/ZN (NOR3_X1)
+     1    8.95    0.02    0.04    2.29 ^ place1879/Z (BUF_X1)
+     1    7.62    0.02    0.02    2.31 v _20408_/ZN (AOI21_X2)
+    31   54.09    0.01    0.03    2.34 v place1667/Z (BUF_X8)
+     1    1.40    0.01    0.06    2.42 v _21568_/Z (MUX2_X1)
+                                  2.42 v gen_regfile_ff.register_file_i.rf_reg[948]$_DFFE_PN0P_/D (DFFR_X1)
+                                  2.42   data arrival time
+
+                          2.20    2.20   clock core_clock (rise edge)
+                          0.24    2.44   clock network delay (propagated)
+                          0.00    2.44   clock reconvergence pessimism
+                         -0.04    2.40   library setup time
+                                  2.40   data required time
+-----------------------------------------------------------------------------
+                                  2.40   data required time
+                                 -2.42   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.02   slack (VIOLATED)
+
+==========================================================================
+finish report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+-----------------------------------------------------------------
+Sequential             6.67e-03   3.00e-04   1.55e-04   7.13e-03  32.2%
+Combinational          4.45e-03   6.07e-03   3.91e-04   1.09e-02  49.3%
+Clock                  1.85e-03   2.24e-03   1.43e-05   4.11e-03  18.5%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+-----------------------------------------------------------------
+Total                  1.30e-02   8.61e-03   5.60e-04   2.21e-02 100.0%
+                          58.6%      38.9%       2.5%
+
+--------------------------------------------------------------------------
+Curated from the full ORFS `6_finish.rpt` for this project's baseline run
+(shipped clk_period = 2.2 ns, before any ECO). Full machine-readable
+metrics are in ibex_baseline_2.20ns_metrics.json in this same folder.

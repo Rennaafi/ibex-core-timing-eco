@@ -1,0 +1,9 @@
+Repository name: ibex-core-timing-eco
+
+Description:
+Real RISC-V core (lowRISC ibex) taken through OpenROAD-flow-scripts RTL-to-GDSII — diagnosed a 240-violation setup-timing miss at CPU scale, root-caused it to one undersized cell, and closed it via manual + automated ECO (all 240 violations closed, WNS -15.5ps -> +5ps).
+
+Suggested topics:
+openroad, asic, physical-design, rtl-to-gdsii, eco, timing-closure, nangate45, eda, vlsi, riscv, ibex, static-timing-analysis
+
+Suggested visibility: Public
